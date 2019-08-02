@@ -6,26 +6,26 @@ public class Client {
 	public static void main(String[] args){
 		Client c = new Client();
 		
-		String perm = "abc";
+		String perm = "abcd";
 		char[] array = perm.toCharArray();
 		char[] temp = new char[array.length];
 		int start = 0;
 		
-		System.out.print("Permutation: ");
-		c.permutation(array, start);
-				
-		System.out.println("Combination: ");
-		c.combination(array, start, temp, 0);
-		
+//		System.out.print("Permutation: ");
+//		c.permutation(array, start);
+//				
+//		System.out.println("Combination: ");
+//		c.combination(array, start, temp, 0);
+////		
 		System.out.println("r_Combination: ");
-		c.r_combinations(array, 0, temp, 0, 2);
-		
-		System.out.println("r_Combination with repetation: ");
-		temp =  new char[3];
-		c.r_combinations_with_repitation(array, 0, temp, 0, 3);
-		
-		System.out.println("combination without recursion: ");
-		c.level_based_print(array);
+		c.r_combinations(array, 0, temp, 0, 4);
+//		
+//		System.out.println("r_Combination with repetation: ");
+//		temp =  new char[3];
+//		c.r_combinations_with_repitation(array, 0, temp, 0, 3);
+//		
+//		System.out.println("combination without recursion: ");
+//		c.level_based_print(array);
 	}
 	
 	public void permutation(char[] array, int start){
@@ -40,7 +40,6 @@ public class Client {
 		   array[i] = array[start];
 		   array[start] = temp;
 		}
-		
 	}
 	public void combination(char a[], int start, char b[], int lev){      
 		 Util.print(b, lev);

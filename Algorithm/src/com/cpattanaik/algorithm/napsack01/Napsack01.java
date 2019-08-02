@@ -5,13 +5,18 @@ public class Napsack01 {
 	public static void main(String[] args) {
 		Napsack01 client =  new Napsack01();
 		
-	    int v[] = {60, 100, 120};
-	    int w[] = {10,  20,  30};
-	    int W   = 50;
+//	    int v[] = {60, 100, 120};
+//	    int w[] = {10,  20,  30};
+//	    int W   = 50;
 
+		int v[] = {10, 20, 30};
+		int w[] = {1, 1, 1};
+	    int W = 2;
+
+	    
 	    int length = v.length;
 	    
-		System.out.println(client.knapsack(v, w, length, W));
+		//System.out.println(client.knapsack(v, w, length, W));
 		
 		System.out.println(client.knapsack_dp(v, w, length, W));
 	}
@@ -53,7 +58,18 @@ public class Napsack01 {
 				}	
 			}
 		}
+		
+		print(table, length, W);
 		return table[length][W];
+	}
+
+	private void print(int[][] table, int length, int w) {
+		for(int i = 1 ; i <= length; i++){
+			for(int j = 1; j <= w; j++){
+				System.out.print(table[i][j] + "    ");
+			}
+			System.out.println();
+		}
 	}
 
 }

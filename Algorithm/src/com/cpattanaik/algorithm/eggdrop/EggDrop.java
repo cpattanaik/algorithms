@@ -1,5 +1,8 @@
 package com.cpattanaik.algorithm.eggdrop;
 
+import java.util.AbstractMap;
+import java.util.Map;
+
 public class EggDrop {
 	public static void main(String[] args){
 		EggDrop ed = new EggDrop();
@@ -14,9 +17,12 @@ public class EggDrop {
 		System.out.println(ed.eggDrop_DP(nEggs, nFloor));
 	}
 
+	
 	private int eggDrop_DP(int nEggs, int nFloor) {
 		int[][] table = new int[nEggs+1][nFloor+1];
-		
+
+		Map.Entry<String , String>  entry  =  new AbstractMap.SimpleEntry<String, String>("exmpleString", ""); 
+
 		//One Egg and N Floor
 		for(int i = 1; i <= nFloor; i++)
 			table[1][i] = i;

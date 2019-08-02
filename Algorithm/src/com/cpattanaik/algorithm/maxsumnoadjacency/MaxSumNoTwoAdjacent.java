@@ -9,9 +9,9 @@ public class MaxSumNoTwoAdjacent {
 		
 		System.out.println(client.maxSum(a));
 		
-		int num = 5;
-		int[] dup  = {num};
-		System.out.println(client.checkNumberIsPalindrom(num, dup));
+//		int num = 5;
+//		int[] dup  = {num};
+//		System.out.println(client.checkNumberIsPalindrom(num, dup));
 
 	}
 
@@ -34,11 +34,10 @@ public class MaxSumNoTwoAdjacent {
 		int includingCurrent = 0;
 		
 		for(int i = 0; i < a.length; i++){
-			int prevexcludingCurrent = excludingCurrent;   
-			excludingCurrent = Math.max(excludingCurrent, includingCurrent);
-			includingCurrent = prevexcludingCurrent + a[i];
+			int temp = Math.max(excludingCurrent, includingCurrent);   
+			includingCurrent = excludingCurrent + a[i];
+			excludingCurrent = temp;
 		}
-		
 		return Math.max(excludingCurrent, includingCurrent); 
 	}
 

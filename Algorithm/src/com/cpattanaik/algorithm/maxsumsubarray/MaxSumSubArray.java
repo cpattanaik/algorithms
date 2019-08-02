@@ -9,27 +9,33 @@ public class MaxSumSubArray {
 		int result = mSubArray.maxSubArraySum(array);
 		System.out.println(result);
 		
-		int a[] = {-2, 3, 4, -1, 2, -5, 4};
-		System.out.println("Max Sub Array Multiplication: ");
-		result = mSubArray.maxSubArrayMul(a);
-		System.out.println(result);		
+//		int a[] = {-2, 3, 4, -1, 2, -5, 4};
+//		System.out.println("Max Sub Array Multiplication: ");
+//		int result = mSubArray.maxSubArrayMul(a);
+//		System.out.println(result);		
 	}
 	
 	private int maxSubArraySum(int[] array) {
 		int result = 0;
 		int sum = 0;
+		int rstart = 0 , rend = 0;
+		int start = 0 , end = 0;
 		
 		for(int i = 0; i < array.length; i++){
 			sum = sum + array[i];
 
 			if(sum < array[i]){
 				sum = array[i];
+				start = i ; end = i;
 			}			
 			
 			if(sum > result){
 				result = sum;
+				rstart =  start;
+				rend = i;
 			}
 		}
+		System.out.println("start: " +rstart + " end: " +rend);
 		return result;
 	}
 	
@@ -39,6 +45,7 @@ public class MaxSumSubArray {
 		int maxMul = 1;
 		
 		for(int i = 0; i < array.length; i++){
+			
 			if(array[i] > 0){
 				positiveMul = positiveMul*array[i];
 				negetiveMul = Math.min(negetiveMul * array[i], 1);   //if first element is positive
