@@ -1,31 +1,37 @@
 package com.cpattanaik.algorithm.subsetsum;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class SubSetSum {
     public static void main(String[] args){
 		SubSetSum client =  new SubSetSum();
 		
-		int[] set = {3, 34, 4, 12, 5, 2};
+		int[] set = {3, 4, 4, 12, 5, 2};
 		int sum = 10;
-		
-		System.out.println( client.subSetSum(set, set.length, sum) );
-		
+		List<Integer> list =  new ArrayList<Integer>();
+		client.subSetSum(set, set.length, sum, list);
+		System.out.println(list.toString());
 		System.out.println( client.subSetSum_dp(set, set.length, sum) );
     }
 
-	private boolean subSetSum(int[] set, int length, int sum) {
+	private void subSetSum(int[] set, int length, int sum, List<Integer> list) {
 		if(sum == 0){
-			return true;
+			System.out.println(list.toString());
+			return;
 		}
 		
 		if(sum != 0  && length == 0){
-			return false;
+			return;
 		}
 		
 		if(set[length -1] > sum){
-			return subSetSum(set, length-1, sum);
+			subSetSum(set, length-1, sum, list);
 		}else{
-			return subSetSum(set, length-1, sum) || subSetSum(set, length-1, sum-set[length-1]);
+			list.add(set[length-1]);
+			subSetSum(set, length-1, sum-set[length-1], list);
+			list.remove(list.size()-1);
+			subSetSum(set, length-1, sum, list);
 		}
 		
 	}

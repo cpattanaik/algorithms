@@ -21,8 +21,8 @@ public class WordBreakProblem {
 		dict.add("sung");
 		WordBreakProblem wp = new WordBreakProblem();
 		String input = "ilikesamsung";
-		boolean x = wp.WordBreak(input);
-		//boolean x = wp.WordBreakAll(input, "");
+		//boolean x = wp.WordBreak(input);
+		boolean x = wp.WordBreakAll(input, "");
 		//System.out.println(x);
 	}
 	

@@ -66,12 +66,14 @@ public class ArrayPartitionTwoEqualSum {
 		}
 		
 		if(array[length-1] > sum){
-			boolean x = checkEqualSumPartition(array, length-1, sum, result);
-			return x;
+			//Not a candidate for result
+			return checkEqualSumPartition(array, length-1, sum, result);
 		}
 		
+		//Not a candidate for result
 		boolean x = checkEqualSumPartition(array, length-1, sum, result);
 		
+		//Candidate for result
 		result[length-1] = array[length-1];
 		boolean y = checkEqualSumPartition(array, length-1, sum-array[length-1], result);
 		result[length-1] = 0;

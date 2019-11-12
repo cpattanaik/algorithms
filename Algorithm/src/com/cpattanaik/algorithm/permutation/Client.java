@@ -18,7 +18,7 @@ public class Client {
 //		c.combination(array, start, temp, 0);
 ////		
 		System.out.println("r_Combination: ");
-		c.r_combinations(array, 0, temp, 0, 4);
+		c.r_combinations(array, 0, temp, 0, 2);
 //		
 //		System.out.println("r_Combination with repetation: ");
 //		temp =  new char[3];
